@@ -1,0 +1,110 @@
+homebrew_taps:
+    - homebrew/core
+    - homebrew/cask
+#    - homebrew/cask-versions
+#    - homebrew/cask-drivers
+  
+homebrew_installed_packages:
+#  - git
+    - wget
+    - iperf3
+#  - rclone
+#  - mtr
+#  - media-info
+#  - nmap
+#  - gdu
+    - zsh
+    - zsh-history-substring-search
+    - zsh-syntax-highlighting
+    - zsh-autosuggestions
+
+homebrew_cask_apps:
+#    - bbedit
+#    - keka
+#    - iterm2
+#    - microsoft-teams
+#    - lulu
+    - vlc
+#    - arq
+#    - rectangle # (but only if not using Magnet)
+#    - transnomino
+#    - calibre4 # requires cask-versions
+#    - superslicer
+#    - discord
+#    - easyfind
+#    - find-any-file
+#    - adobe-acrobat-reader
+#    - cyberduck
+#    - omnigraffle
+#    - raspberry-pi-imager
+#    - 3dconnexion # requires cask-drivers
+
+mas_installed_apps:
+    - { id: 441258766, name: "Magnet" }
+#    - { id: 1451685025, name: "WireGuard"}
+#    - { id: 1289583905, name: "Pixelmator Pro"}
+#    - { id: 413965349, name: "Soulver 2"}
+#    - { id: 1365531024, name: "1Blocker"}
+#    - { id: 1352778147, name: "BitWarden"}
+#    - { id: 975937182, name: "Fantastical"}
+#    - { id: 409183694, name: "Keynote"}
+#    - { id: 409201541, name: "Pages"}
+#    - { id: 409203825, name: "Numbers"}
+#    - { id: 462054704, name: "Microsoft Word"}
+#    - { id: 462058435, name: "Microsoft Excel"}
+#    - { id: 462062816, name: "Microsoft PowerPoint"}
+#    - { id: 985367838, name: "Microsoft Outlook"}
+#    - { id: 784801555, name: "Microsoft OneNote"}
+#    - { id: 823766827, name: "OneDrive"}
+#    - { id: 442160987, name: "Flycut"}
+     - { id: 1160435653, name: "AutoMounter"}
+  
+vars_prompt:
+    - name: mas_email
+      prompt: Enter Apple ID email
+      private: no
+      
+    - name: mas_password
+      prompt: Enter Apple ID password
+      private: no
+      unsafe: yes
+
+
+configure_dock: false
+dockitems_remove:
+  - Launchpad
+  - TV
+  - Podcasts
+  - Siri
+  - Calendar
+  - 'App Store'
+  - Mail
+  - News
+dockitems_persist:
+  - name: "iTerm"
+    path: "/Applications/iTerm.app"
+    pos: 5
+  - name: "Microsoft Teams"
+    path: "/Applications/Microsoft Teams.app"
+    pos: 3
+  - name: "Microsoft Outlook"
+    path: "/Applications/Microsoft Outlook.app"
+    pos: 4
+
+configure_dotfiles: true
+configure_terminal: false
+configure_osx: true
+
+configure_sudoers: true
+sudoers_custom_config: |
+    # Allow users in admin group to use sudo with no password.
+    %admin ALL=(ALL) NOPASSWD: ALL
+
+dotfiles_repo: https://github.com/BeansIsFat/dotfiles.git
+dotfiles_repo_accept_hostkey: false
+dotfiles_repo_local_destination: ~/git/dotfiles
+dotfiles_files:
+  - .zshrc
+  - .gitignore
+  - .inputrc
+  - .osx
